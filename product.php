@@ -7,13 +7,13 @@ include './database/connection.php';
 
       $query = "select * from products join assets on products.id = assets.product_id where products.category_id = '{$category_id}' AND name LIKE '%{$keyword}%';";
  
-      $items = query($query);
+      $items_category = query($query);
       $output ='';
   
-      if(mysqli_num_rows($items)>0){
+      if(mysqli_num_rows($items_category)>0){
           
           $item_amount = 6;
-          while($row = mysqli_fetch_array($items)){
+          while($row = mysqli_fetch_array($items_category)){
               $dis_count = ((100 - $row['discount']) * $row['price']/100);
                   $output .= '
 
@@ -60,8 +60,8 @@ include './database/connection.php';
 
 //   $cateId = 0;
 //   $product = 'select * from products join assets on assets.product_id = products.id';
-//   $items = query($product);
-//       foreach ($items as $row):
+//   $items_category = query($product);
+//       foreach ($items_category as $row):
 //           $dis_count = ((100 - $row['discount']) * $row['price']/100);
 //           echo '
 //           <div class="col-md-4 item_product">

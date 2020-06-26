@@ -4,6 +4,53 @@
         var category = "Electronics";
         var category_id = 1;
         var search = "";
+
+        function category_click(search, category_id){
+            $.ajax({
+                url: "product.php",
+                method: "POST",
+                data: {
+                    category_id: category_id,
+                    keyword:search
+                },
+                success: function (data) {
+                    $("#item").empty();
+                    $("#item").append(data);
+                }
+            })
+        }
+    
+      
+        function load_data(search, category_id){
+            $.ajax({
+                url:"product.php",
+                method:"POST",
+                data:{
+                    keyword:search,
+                    category_id:category_id,
+                    
+                },
+                success:function(data)
+                {
+                 $('#item').html(data);
+                },
+                error: function(data){
+                    console.log("error:" + data);
+                }
+            });
+        }
+        $('#search').keyup(function(){
+            var search = $(this).val();        
+            if(search != '')
+            {
+                load_data(search, category_id);
+            }
+            else
+            {
+                load_data(search, category_id);
+            }
+        });
+
     
         $("#Electronics").click(function(){
             $(".text_category").removeClass("active");
@@ -55,52 +102,7 @@
         });
     
        
-        function category_click(search, category_id){
-            $.ajax({
-                url: "product.php",
-                method: "POST",
-                data: {
-                    category_id: category_id,
-                    keyword:search
-                },
-                success: function (data) {
-                    $("#item").empty();
-                    $("#item").append(data);
-                }
-            })
-        }
-    
-      
-        function load_data(search, category_id){
-            $.ajax({
-                url:"product.php",
-                method:"POST",
-                data:{
-                    keyword:search,
-                    category_id:category_id,
-                    
-                },
-                success:function(data)
-                {
-                 $('#item').html(data);
-                },
-                error: function(data){
-                    console.log("error:" + data);
-                }
-            });
-        }
-        $('#search').keyup(function(){
-            var search = $(this).val();        
-            if(search != '')
-            {
-                load_data(search, category_id);
-            }
-            else
-            {
-                load_data(search, category_id);
-            }
-        });
-
+        
         $(function () {
             $(".item_product").slice(0, 6).show();
             $("#loads").on('click', function (e) {
