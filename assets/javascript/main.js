@@ -101,8 +101,11 @@
             }
         });
     
-       
-        
+        $("#pro_detail").click(function() {
+            assets = "name";
+        });
+
+    
         $(function () {
             $(".item_product").slice(0, 6).show();
             $("#loads").on('click', function (e) {
