@@ -27,8 +27,6 @@
             include './includes/feature.php';
         ?>
     <div class="container">
-
-    
         <!-- Promotion-Section -->
         <?php
             include './includes/promotion.php';
