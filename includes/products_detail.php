@@ -11,61 +11,24 @@ require ('../database/connection.php');
     <script src="/Assignment_2/assets/links/popper.min.js.download"></script>
     <script src="/Assignment_2/assets/links/jquery.min.js.download"></script>
     <script src="/Assignment_2/assets/links/bootstrap.min.js.download"></script>
+    <script src="/Assignment_2/assets/javascript/main.js"></script>
     <link rel="stylesheet" href="/Assignment_2/assets/links/bootstrap.min.css">
     <link rel="stylesheet" href="/Assignment_2/assets/css/style2.css">
-    <title>products</title>
+    <title>products detail</title>
 </head>
 
 <body>
 
     <!-- Navbar -->
-<nav class="bg-light navbar-light">
-    <div class="d-flex">
-        <div class="p-2 flex-grow-1 bd-highlight"><h3>Awesome <span class="text-success">Shop</span></h3></div>
-        <div class="p-2 bd-highlight"><img class="question-mark" src="/Assignment_2/assets/icons/question.png" alt="question_mark"> </div>
-        <div class="p-2 bd-highlight"><a href="#">Need Help</a></div>
-        <div class="p-2 "><a href="#" class="border border-dark p-1 rounded bg-primary text-dark">Join</a></div>
-    </div>
-</nav>
-
+        <?php   include './nav_bar.php';?>
     <!-- Feature Section -->
-        <?php
-            include './feature.php';?>
+        <?php    include './feature.php';?>
     <div class="container">
 
         <!-- Promotion-Section -->
-        <div class="row justify-content-center ">
-                <div class="col-sm-3 border border-dark m-2 bg-coupon promotion">
-                    <span class="position-absolute">
-                        <h3>Coupon Saving</h3>
-                        <img class="d-inline promotion-icon " src="/Assignment_2/assets/icons/coupon.png" alt="coupon">
-                        <p class="d-inline ">Up to 60% everyday essentials</p>
-                    </span>
-                        <button class="promotion-btn position-relative" type="button" class="btn btn-light" id="myDIV">Shop Now</button>
-                </div>
-                <div class="col-sm-3 border border-dark m-2 bg-deliver promotion">
-                    <span class="position-absolute">
-                        <h3>Free Delivery</h3>
-                        <img class="d-inline promotion-icon " src="/Assignment_2/assets/icons/car.png" alt="car">
-                        <p class="d-inline ">With selected items</p>
-                    </span>
-                    <button class="promotion-btn position-relative" type="button" class="btn btn-light" id="myDIV">Deliver Now</button>
-                </div>
-                <div class="col-sm-3 border border-dark m-2 bg-gift promotion">
-                <span class="position-absolute">
-                    <h3>Gift Vouher</h3> 
-                    <img class="promotion-icon " src="/Assignment_2/assets/icons/gift.png" alt="gift">       
-                    <p class="d-inline ">With personal card items</p>
-                </span>
-                    <button class="promotion-btn position-relative" type="button" class="btn btn-light" id="myDIV">Gift Now</button>
-            </div>
-        </div>
-    
-
-
+        <?php   include './promotion.php';?>
         <br>
-        <div class="row">
-
+        <div class="row" >
             <!-- category section -->
             <?php
     
@@ -73,7 +36,6 @@ require ('../database/connection.php');
     $ca = $categories -> fetch_array(MYSQLI_NUM);
     $count = 1;
 ?>
-        <div class="row ">
             <div class="col-3 ">   
                 <ul class="nav flex-column nav-tabs ">
                     <?php
@@ -82,14 +44,14 @@ require ('../database/connection.php');
                                 echo '
                            
                                     <li class="nav-item mb-1 text_category active" id="'.$cate_icon['name'].'" >
-                                        <a class="nav-link" href="/Assignment_2/"><img class="category-icon" src="/Assignment_2/assets/icons/'.$cate_icon['icon'].'" alt="laptop">'.$cate_icon['name'].'</a>
+                                        <a class="nav-link" href="/Assignment_2"><img class="category-icon" src="/Assignment_2/assets/icons/'.$cate_icon['icon'].'" alt="laptop">'.$cate_icon['name'].'</a>
                                     </li>  
                              ';
                             }else {
                                 echo '
                            
                                     <li class="nav-item mb-1 text_category" id="'.$cate_icon['name'].'" >
-                                        <a class="nav-link" href="/Assignment_2/"><img class="category-icon" src="/Assignment_2/assets/icons/'.$cate_icon['icon'].'" alt="laptop">'.$cate_icon['name'].'</a>
+                                        <a class="nav-link" href="/Assignment_2"><img class="category-icon" src="/Assignment_2/assets/icons/'.$cate_icon['icon'].'" alt="laptop">'.$cate_icon['name'].'</a>
                                     </li>  
                              ';
                             }
@@ -99,15 +61,11 @@ require ('../database/connection.php');
                 </ul>
             </div>
 
-
-                   
+   
 
             <!-- product Section -->
             <div class="col-md-9 background">
                 <div class="row">
-                    <?php
-                   // include './includes/products.php';
-                    ?>
                     <div class="row border border-secondary mt-5">
                         <?php
                     $products = "select * from products p join assets a on p.id = a.product_id where p.id= ".$_GET["id"];
