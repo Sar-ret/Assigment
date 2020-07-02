@@ -1,6 +1,6 @@
 <?php
-    $con = mysqli_connect('','mysql123';'SaRet12@','saretsql123456');
-  //  $con = mysqli_connect('localhost', 'root', '', 'awesome_shop');
+   $con = mysqli_connect('db4free.net','mysql123','SaRet12@','saretsql123456');
+    //$con = mysqli_connect('localhost', 'root', '', 'awesome_shop');
     date_default_timezone_set('Asia/Phnom_Penh');
 ?>
 
