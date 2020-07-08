@@ -6,7 +6,6 @@ if (isset($_SESSION["email"])){
 }
 
 ?>
-
 <nav class="bg-light navbar-light">
     <div class="d-flex">
         <div class="p-2 flex-grow-1 bd-highlight"><a class="text-decoration-none" href="http://localhost/Assignment_2/"><h3>Awesome <span class="text-success">Shop</span></h3></a></div>
