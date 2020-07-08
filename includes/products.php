@@ -16,10 +16,12 @@
                                 <p class="card-text">'.$item['description'].'</p>
                                 <p><del class="text-danger">$'.$item['price'].'</del></p>
                                 <h5 class="d-inline"> $ '.$dis_count.'</h5>
-                                <a href="" class="btn btn-white float-right border border-dark"><img class="cart-img" src="./assets/icons/cart.png" alt="cart"> Cart</a>                                           
+                                                                           
 
-                            </div>
+                           
                         </a>
+                        <a href="" class="btn btn-white float-right border border-dark"><img class="cart-img" src="./assets/icons/cart.png" alt="cart"> Cart</a>
+                    </div>
                     </div>
                 </div>   
                   

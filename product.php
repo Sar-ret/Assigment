@@ -3,7 +3,7 @@ include './database/connection.php';
   if(isset($_POST["keyword"])){
       $keyword = $_POST['keyword'];
       $category_id = $_POST['category_id'];
-
+    
       $query = "select * from products join assets on products.id = assets.product_id where products.category_id = '{$category_id}' AND name LIKE '%{$keyword}%';";
  
       $items_category = query($query);
@@ -26,11 +26,12 @@ include './database/connection.php';
                             <p class="card-text">'.$row['description'].'</p>
                             <p><del class="text-danger">$'.$row['price'].'</del></p>
                             <h5 class="d-inline"> $ '.$dis_count.'</h5>                             
-                            <a href="#" class="btn btn-white float-right border border-dark"><img class="cart-img" src="./assets/icons/cart.png" alt="cart"> Cart</a>                                            
-                        </div>
-                    </a> 
+                                                                       
+                       
+                    </a>
+                    <a href="#" class="btn btn-white float-right border border-dark"><img class="cart-img" src="./assets/icons/cart.png" alt="cart"> Cart</a>  
                     </div>  
-
+                    </div>
             </div>
             
                   ';
