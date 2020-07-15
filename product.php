@@ -29,7 +29,7 @@ include './database/connection.php';
                                                                        
                        
                     </a>
-                    <a href="#" class="btn btn-white float-right border border-dark"><img class="cart-img" src="./assets/icons/cart.png" alt="cart"> Cart</a>  
+                    <a href="/Assignment_2/checkout.php" class="btn btn-white float-right border border-dark"><img class="cart-img" src="./assets/icons/cart.png" alt="cart"> Cart</a>  
                     </div>  
                     </div>
             </div>
